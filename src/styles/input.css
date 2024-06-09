@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ScreenLoader.tsx */
+.loader {
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 92px;
+    height: 92px;
+    color: #fff;
+}
+.loader:before,
+.loader:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+}
+.loader:after {
+    color: rgba(79, 70, 229, 1);
+    transform: rotateY(70deg);
+    animation-delay: 0.4s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
+
+@keyframes rotateccw {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+    0%,
+    100% {
+        box-shadow: 0.2em 0px 0 0px currentcolor;
+    }
+    12% {
+        box-shadow: 0.2em 0.2em 0 0 currentcolor;
+    }
+    25% {
+        box-shadow: 0 0.2em 0 0px currentcolor;
+    }
+    37% {
+        box-shadow: -0.2em 0.2em 0 0 currentcolor;
+    }
+    50% {
+        box-shadow: -0.2em 0 0 0 currentcolor;
+    }
+    62% {
+        box-shadow: -0.2em -0.2em 0 0 currentcolor;
+    }
+    75% {
+        box-shadow: 0px -0.2em 0 0 currentcolor;
+    }
+    87% {
+        box-shadow: 0.2em -0.2em 0 0 currentcolor;
+    }
+}
+
+.bg-done button,
+.bg-done select,
+.bg-done div,
+.bg-done a {
+    @apply border border-green-700/90 bg-green-400/15;
+}
+.bg-revisit button,
+.bg-revisit select,
+.bg-revisit a,
+.bg-revisit div {
+    @apply border border-yellow-700/90 bg-yellow-400/15;
+}
+
+/* Hide overflow words */
+.hide-overflow-words {
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    overflow: hidden; /* Hide the overflowed text */
+    text-overflow: ellipsis; /* Show ellipsis (...) for overflowed text */
+    display: block; /* Ensure the button is a block-level element */
+    width: 100%; /* Ensure the button takes up the full width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+.disable-button {
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+}
