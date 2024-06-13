@@ -13,7 +13,7 @@ export default {
                 primary: ["Poppins", "sans-serif"],
             },
             gridTemplateColumns: {
-                question: "1fr 5fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr 0.6fr",
+                question: "0.5fr 1fr 5fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr 0.6fr",
             },
         },
     },

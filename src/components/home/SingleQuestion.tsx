@@ -23,9 +23,10 @@ import gfgImg from "./../../assets/images/gfg.svg";
 import { Question, QuestionDifficulty, QuestionStatus, UpdateQuestionToServerProps } from "../../types/types";
 type SingleQuestionProps = {
     question: Question;
+    index: number;
 };
 
-const SingleQuestion = ({ question }: SingleQuestionProps) => {
+const SingleQuestion = ({ question, index }: SingleQuestionProps) => {
     // States and Variables
     // For Edit question status only
     const { mutate: updateQuestionToServer, isPending: isPendingUpdateQuestion } = useCustomMutation({
@@ -75,6 +76,9 @@ const SingleQuestion = ({ question }: SingleQuestionProps) => {
             <section
                 className={`SINGLE_QUESTION bg-all-children grid min-w-[680px] grid-cols-question justify-items-center gap-2 text-gray-300 ${statusClasses}`}
             >
+                <div className={`flex w-full items-center justify-center bg-primary-bg p-2 px-1`}>
+                    <p>{index + 1}</p>
+                </div>
                 <section className="flex h-12 w-full items-center justify-center bg-primary-bg">
                     <SelectInput
                         name="status"

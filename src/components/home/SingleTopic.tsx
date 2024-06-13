@@ -46,8 +46,8 @@ const SingleTopic = ({ topicName, topicQuestions }: SingleTopicProps) => {
                 <section className="TOPIC_QUESTIONS w-full space-y-4 overflow-x-auto bg-secondary-bg p-8">
                     <TopicTableHeader />
 
-                    {topicQuestions.map((question: Question) => {
-                        return <SingleQuestion key={question._id} question={question} />;
+                    {topicQuestions.map((question: Question, index) => {
+                        return <SingleQuestion key={question._id} question={question} index={index} />;
                     })}
                 </section>
             )}
