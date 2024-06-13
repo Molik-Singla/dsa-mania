@@ -29,6 +29,7 @@ export interface Question {
     quelink2: string;
     videoLink: string;
     tufLink: string;
+    createdAt?: Date;
 }
 
 // export interface QuestionInputValues extends Omit<Question, "_id"> {}

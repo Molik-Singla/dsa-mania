@@ -34,11 +34,24 @@ const Home = () => {
                                     (question: Question) => question.category === category,
                                 );
 
+                                let sortedQuestionByDate = topicWiseQuestios.sort((a, b) => {
+                                    if (a.createdAt && b.createdAt)
+                                        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+                                    else return 0;
+                                });
+
+                                let sortedQuestionsByDiffAndDateBoth = sortedQuestionByDate.sort((a, b) => {
+                                    if (a.difficulty === "easy" && b.difficulty === "medium") return -1;
+                                    else if (a.difficulty === "easy" && b.difficulty === "hard") return -1;
+                                    else if (a.difficulty === "medium" && b.difficulty === "hard") return -1;
+                                    else return 1;
+                                });
+
                                 return (
                                     <SingleTopic
                                         key={category}
                                         topicName={capitalizeFirstLetter(category)}
-                                        topicQuestions={topicWiseQuestios}
+                                        topicQuestions={sortedQuestionsByDiffAndDateBoth}
                                     />
                                 );
                             })}

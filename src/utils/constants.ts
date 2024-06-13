@@ -2,7 +2,7 @@ export const possibleStatus: string[] = ["pending", "done", "revisit"];
 export const possibleDifficulty: string[] = ["easy", "medium", "hard"];
 
 export const possibleCategories: string[] = [
-    "basic",
+    "basics",
     "array",
     "string",
     "recusion",
@@ -14,4 +14,6 @@ export const possibleCategories: string[] = [
     "hashing",
     "heaps",
     "dynamic programming",
+    "oops",
+    "searching and sorting",
 ];
